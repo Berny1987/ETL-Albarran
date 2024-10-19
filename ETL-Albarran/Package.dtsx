@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{7BC32EAE-FD8A-4E6B-B984-1112B6935115}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{DE6179B8-E93F-4594-8FF6-75908B56B86F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1070,47 +1070,9 @@ FROM            clientes CROSS JOIN
           Id="Package\Dim_Cliente\Origen de OLE DB"
           TopLeft="208,127" />
         <NodeLayout
-          Size="168,42"
-          Id="Package\Dim_Cliente\Destino de OLE DB"
-          TopLeft="371,355" />
-        <NodeLayout
           Size="175,42"
           Id="Package\Dim_Cliente\Conversión de datos"
           TopLeft="263,250" />
-        <EdgeLayout
-          Id="Package\Dim_Cliente.Paths[Salida de conversión de datos]"
-          TopLeft="350.5,292">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="104.5,63"
-              Start="0,0"
-              End="104.5,55.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.5"
-                    Point2="0,31.5"
-                    Point3="4,31.5" />
-                  <mssgle:LineSegment
-                    End="100.5,31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="100.5,31.5"
-                    Point2="104.5,31.5"
-                    Point3="104.5,35.5" />
-                  <mssgle:LineSegment
-                    End="104.5,55.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim_Cliente.Paths[Salida de origen de OLE DB]"
           TopLeft="290,169">
@@ -1145,6 +1107,44 @@ FROM            clientes CROSS JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Dim_Cliente\Destino de OLE DB"
+          TopLeft="371,355" />
+        <EdgeLayout
+          Id="Package\Dim_Cliente.Paths[Salida de conversión de datos]"
+          TopLeft="350.5,292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104.5,63"
+              Start="0,0"
+              End="104.5,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="100.5,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100.5,31.5"
+                    Point2="104.5,31.5"
+                    Point3="104.5,35.5" />
+                  <mssgle:LineSegment
+                    End="104.5,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1153,19 +1153,6 @@ FROM            clientes CROSS JOIN
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Cliente\Destino de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
