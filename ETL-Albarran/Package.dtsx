@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{FD11FCCC-2500-4967-904F-16816253578A}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{ACB58C3B-BF77-4C37-A15D-DA0A33FCF79F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,43 +58,43 @@
           version="1">
           <components>
             <component
-              refId="Package\Dim_Cliente\Conversión de datos"
+              refId="Package\Dim_Cliente\Conversión de datos-Prueba"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Conversión de datos"
-              name="Conversión de datos"
+              name="Conversión de datos-Prueba"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos]"
                   name="Entrada de conversión de datos">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[nombre]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[nombre]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="nombre"
                       lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nombre]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[appaterno]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[appaterno]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="appaterno"
                       lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[appaterno]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[sexo]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[sexo]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1"
                       cachedName="sexo"
                       lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[fecha_nacimiento]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[fecha_nacimiento]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fecha_nacimiento"
                       lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_nacimiento]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[comuna]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[comuna]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="comuna"
@@ -105,19 +105,19 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos]"
                   exclusionGroup="1"
                   name="Salida de conversión de datos"
-                  synchronousInputId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  synchronousInputId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]"
                       name="Nombre_Cliente_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -133,13 +133,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]"
                       name="Apellido_Cliente_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -155,13 +155,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Sexo_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       length="1"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Sexo_str]"
                       name="Sexo_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -177,11 +177,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]"
                       name="Fecha_Nacimiento_dt"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -197,13 +197,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Comuna_str]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Comuna_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Comuna_str]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Comuna_str]"
                       name="Comuna_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -222,22 +222,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de conversión de datos"
-                  synchronousInputId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  synchronousInputId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -324,7 +324,7 @@
                       cachedLength="255"
                       cachedName="Nombre_Cliente_str"
                       externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Cliente]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]" />
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]" />
                     <inputColumn
                       refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Apellido_Cliente_str]"
                       cachedCodepage="1252"
@@ -332,7 +332,7 @@
                       cachedLength="255"
                       cachedName="Apellido_Cliente_str"
                       externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apellido_Cliente]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]" />
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]" />
                     <inputColumn
                       refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Sexo_str]"
                       cachedCodepage="1252"
@@ -340,13 +340,13 @@
                       cachedLength="1"
                       cachedName="Sexo_str"
                       externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sexo]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]" />
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Sexo_str]" />
                     <inputColumn
                       refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Fecha_Nacimiento_dt]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Fecha_Nacimiento_dt"
                       externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Nacimiento]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]" />
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]" />
                     <inputColumn
                       refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Comuna_str]"
                       cachedCodepage="1252"
@@ -354,7 +354,7 @@
                       cachedLength="255"
                       cachedName="Comuna_str"
                       externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Comuna]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Comuna_str]" />
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Comuna_str]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -619,10 +619,10 @@ FROM            clientes CROSS JOIN
               refId="Package\Dim_Cliente.Paths[Salida de conversión de datos]"
               endId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
               name="Salida de conversión de datos"
-              startId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos]" />
+              startId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\Dim_Cliente.Paths[Salida de origen de OLE DB]"
-              endId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              endId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos]"
               name="Salida de origen de OLE DB"
               startId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
           </paths>
@@ -1031,8 +1031,8 @@ FROM            clientes CROSS JOIN
           Id="Package\Dim_Cliente\Destino de OLE DB"
           TopLeft="282,349" />
         <NodeLayout
-          Size="175,42"
-          Id="Package\Dim_Cliente\Conversión de datos"
+          Size="211,42"
+          Id="Package\Dim_Cliente\Conversión de datos-Prueba"
           TopLeft="226,225" />
         <EdgeLayout
           Id="Package\Dim_Cliente.Paths[Salida de origen de OLE DB]"
@@ -1040,9 +1040,9 @@ FROM            clientes CROSS JOIN
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="95.5,65"
+              EndConnector="113.5,65"
               Start="0,0"
-              End="95.5,57.5">
+              End="113.5,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1053,13 +1053,13 @@ FROM            clientes CROSS JOIN
                     Point2="0,32.5"
                     Point3="4,32.5" />
                   <mssgle:LineSegment
-                    End="91.5,32.5" />
+                    End="109.5,32.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="91.5,32.5"
-                    Point2="95.5,32.5"
-                    Point3="95.5,36.5" />
+                    Point1="109.5,32.5"
+                    Point2="113.5,32.5"
+                    Point3="113.5,36.5" />
                   <mssgle:LineSegment
-                    End="95.5,57.5" />
+                    End="113.5,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1070,13 +1070,13 @@ FROM            clientes CROSS JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim_Cliente.Paths[Salida de conversión de datos]"
-          TopLeft="313.5,267">
+          TopLeft="331.5,267">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="52.5,82"
+              EndConnector="34.5,82"
               Start="0,0"
-              End="52.5,74.5">
+              End="34.5,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1087,13 +1087,13 @@ FROM            clientes CROSS JOIN
                     Point2="0,41"
                     Point3="4,41" />
                   <mssgle:LineSegment
-                    End="48.5,41" />
+                    End="30.5,41" />
                   <mssgle:CubicBezierSegment
-                    Point1="48.5,41"
-                    Point2="52.5,41"
-                    Point3="52.5,45" />
+                    Point1="30.5,41"
+                    Point2="34.5,41"
+                    Point3="34.5,45" />
                   <mssgle:LineSegment
-                    End="52.5,74.5" />
+                    End="34.5,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
