@@ -11,15 +11,15 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{DE6179B8-E93F-4594-8FF6-75908B56B86F}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{ACB58C3B-BF77-4C37-A15D-DA0A33FCF79F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Albarran]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6914E13F-A4CF-4609-A421-E7D54BD1CF96}"
+      DTS:DTSID="{48095533-49E3-4926-B313-6D395756DF6B}"
       DTS:ObjectName="localhost.Albarran">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -31,7 +31,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.AlbarranDM]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{E12FD8BE-9321-4FF9-B71F-63AF6960E9DC}"
+      DTS:DTSID="{74E413D7-44B6-4EE3-B615-666BE471D9D1}"
       DTS:ObjectName="localhost.AlbarranDM">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -58,113 +58,66 @@
           version="1">
           <components>
             <component
-              refId="Package\Dim_Cliente\Conversión de datos"
+              refId="Package\Dim_Cliente\Conversión de datos-Prueba"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Conversión de datos"
-              name="Conversión de datos"
+              name="Conversión de datos-Prueba"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos]"
                   name="Entrada de conversión de datos">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[ID_cliente]"
-                      cachedDataType="i4"
-                      cachedName="ID_cliente"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_cliente]" />
-                    <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Nombre_Cliente]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[nombre]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="Nombre_Cliente"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nombre_Cliente]" />
+                      cachedName="nombre"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nombre]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Apellido_Cliente]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[appaterno]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="Apellido_Cliente"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Apellido_Cliente]" />
+                      cachedName="appaterno"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[appaterno]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Sexo]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[sexo]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1"
-                      cachedName="Sexo"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Sexo]" />
+                      cachedName="sexo"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Fecha_Nacimiento]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[fecha_nacimiento]"
                       cachedDataType="dbTimeStamp"
-                      cachedName="Fecha_Nacimiento"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Fecha_Nacimiento]" />
+                      cachedName="fecha_nacimiento"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_nacimiento]" />
                     <inputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Comuna]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos].Columns[comuna]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="Comuna"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Comuna]" />
+                      cachedName="comuna"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[comuna]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos]"
                   exclusionGroup="1"
                   name="Salida de conversión de datos"
-                  synchronousInputId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  synchronousInputId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_cliente_int]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[ID_cliente_int]"
-                      name="ID_cliente_int"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_cliente]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      length="1"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]"
-                      name="Sexo_str"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Sexo]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]"
                       name="Nombre_Cliente_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -172,7 +125,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nombre_Cliente]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nombre]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -180,13 +133,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]"
                       name="Apellido_Cliente_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -194,7 +147,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Apellido_Cliente]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[appaterno]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -202,11 +155,33 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]"
-                      dataType="dbTimeStamp2"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Sexo_str]"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]"
+                      length="1"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Sexo_str]"
+                      name="Sexo_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]"
                       name="Fecha_Nacimiento_dt"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -214,7 +189,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Fecha_Nacimiento]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_nacimiento]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -222,13 +197,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Comuna_str]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Comuna_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Comuna_str]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Comuna_str]"
                       name="Comuna_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -236,7 +211,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Comuna]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[comuna]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -247,22 +222,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de conversión de datos"
-                  synchronousInputId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  synchronousInputId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      refId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -343,35 +318,13 @@
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Sexo_str]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="Sexo_str"
-                      externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sexo]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Sexo_str]" />
-                    <inputColumn
-                      refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Fecha_Nacimiento_dt]"
-                      cachedDataType="dbTimeStamp2"
-                      cachedName="Fecha_Nacimiento_dt"
-                      externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Nacimiento]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]" />
-                    <inputColumn
-                      refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Comuna_str]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Comuna_str"
-                      externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Comuna]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Comuna_str]" />
-                    <inputColumn
                       refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Cliente_str]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Nombre_Cliente_str"
                       externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Cliente]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]" />
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Nombre_Cliente_str]" />
                     <inputColumn
                       refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Apellido_Cliente_str]"
                       cachedCodepage="1252"
@@ -379,7 +332,29 @@
                       cachedLength="255"
                       cachedName="Apellido_Cliente_str"
                       externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apellido_Cliente]"
-                      lineageId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]" />
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Apellido_Cliente_str]" />
+                    <inputColumn
+                      refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Sexo_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Sexo_str"
+                      externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sexo]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Sexo_str]" />
+                    <inputColumn
+                      refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Fecha_Nacimiento_dt]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Fecha_Nacimiento_dt"
+                      externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Nacimiento]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Fecha_Nacimiento_dt]" />
+                    <inputColumn
+                      refId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Comuna_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Comuna_str"
+                      externalMetadataColumnId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Comuna]"
+                      lineageId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos].Columns[Comuna_str]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -468,7 +443,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        clientes.cliente_id, clientes.nombre, clientes.appaterno, clientes.sexo, clientes.fecha_nacimiento, comunas.comuna
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        clientes.nombre, clientes.appaterno, clientes.sexo, clientes.fecha_nacimiento, comunas.comuna
 FROM            clientes CROSS JOIN
                          comunas</property>
                 <property
@@ -507,71 +482,58 @@ FROM            clientes CROSS JOIN
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_cliente]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cliente_id]"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ID_cliente]"
-                      name="ID_cliente"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nombre_Cliente]"
+                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nombre]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre]"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nombre_Cliente]"
-                      name="Nombre_Cliente"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[nombre]"
+                      name="nombre"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Apellido_Cliente]"
+                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[appaterno]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[appaterno]"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Apellido_Cliente]"
-                      name="Apellido_Cliente"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[appaterno]"
+                      name="appaterno"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Sexo]"
+                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[sexo]"
                       length="1"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Sexo]"
-                      name="Sexo"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[sexo]"
+                      name="sexo"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Fecha_Nacimiento]"
+                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_nacimiento]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[fecha_nacimiento]"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Fecha_Nacimiento]"
-                      name="Fecha_Nacimiento"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[fecha_nacimiento]"
+                      name="fecha_nacimiento"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Comuna]"
+                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[comuna]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[comuna]"
                       length="255"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Comuna]"
-                      name="Comuna"
+                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[comuna]"
+                      name="comuna"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[cliente_id]"
-                      dataType="i4"
-                      name="cliente_id" />
                     <externalMetadataColumn
                       refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[nombre]"
                       dataType="wstr"
@@ -604,11 +566,6 @@ FROM            clientes CROSS JOIN
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cliente_id]"
-                      dataType="i4"
-                      lineageId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[cliente_id]"
-                      name="cliente_id" />
                     <outputColumn
                       refId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[nombre]"
                       dataType="wstr"
@@ -662,10 +619,10 @@ FROM            clientes CROSS JOIN
               refId="Package\Dim_Cliente.Paths[Salida de conversión de datos]"
               endId="Package\Dim_Cliente\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
               name="Salida de conversión de datos"
-              startId="Package\Dim_Cliente\Conversión de datos.Outputs[Salida de conversión de datos]" />
+              startId="Package\Dim_Cliente\Conversión de datos-Prueba.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\Dim_Cliente.Paths[Salida de origen de OLE DB]"
-              endId="Package\Dim_Cliente\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              endId="Package\Dim_Cliente\Conversión de datos-Prueba.Inputs[Entrada de conversión de datos]"
               name="Salida de origen de OLE DB"
               startId="Package\Dim_Cliente\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
           </paths>
@@ -1068,37 +1025,41 @@ FROM            clientes CROSS JOIN
         <NodeLayout
           Size="164,42"
           Id="Package\Dim_Cliente\Origen de OLE DB"
-          TopLeft="208,127" />
+          TopLeft="136,118" />
         <NodeLayout
-          Size="175,42"
-          Id="Package\Dim_Cliente\Conversión de datos"
-          TopLeft="263,250" />
+          Size="168,42"
+          Id="Package\Dim_Cliente\Destino de OLE DB"
+          TopLeft="282,349" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Dim_Cliente\Conversión de datos-Prueba"
+          TopLeft="226,225" />
         <EdgeLayout
           Id="Package\Dim_Cliente.Paths[Salida de origen de OLE DB]"
-          TopLeft="290,169">
+          TopLeft="218,160">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="60.5,81"
+              EndConnector="113.5,65"
               Start="0,0"
-              End="60.5,73.5">
+              End="113.5,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5" />
+                    End="0,28.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,36.5"
-                    Point2="0,40.5"
-                    Point3="4,40.5" />
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
                   <mssgle:LineSegment
-                    End="56.5,40.5" />
+                    End="109.5,32.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="56.5,40.5"
-                    Point2="60.5,40.5"
-                    Point3="60.5,44.5" />
+                    Point1="109.5,32.5"
+                    Point2="113.5,32.5"
+                    Point3="113.5,36.5" />
                   <mssgle:LineSegment
-                    End="60.5,73.5" />
+                    End="113.5,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1107,36 +1068,32 @@ FROM            clientes CROSS JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Dim_Cliente\Destino de OLE DB"
-          TopLeft="371,355" />
         <EdgeLayout
           Id="Package\Dim_Cliente.Paths[Salida de conversión de datos]"
-          TopLeft="350.5,292">
+          TopLeft="331.5,267">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="104.5,63"
+              EndConnector="34.5,82"
               Start="0,0"
-              End="104.5,55.5">
+              End="34.5,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
+                    End="0,37" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.5"
-                    Point2="0,31.5"
-                    Point3="4,31.5" />
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="4,41" />
                   <mssgle:LineSegment
-                    End="100.5,31.5" />
+                    End="30.5,41" />
                   <mssgle:CubicBezierSegment
-                    Point1="100.5,31.5"
-                    Point2="104.5,31.5"
-                    Point3="104.5,35.5" />
+                    Point1="30.5,41"
+                    Point2="34.5,41"
+                    Point3="34.5,45" />
                   <mssgle:LineSegment
-                    End="104.5,55.5" />
+                    End="34.5,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1153,6 +1110,19 @@ FROM            clientes CROSS JOIN
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Cliente\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
