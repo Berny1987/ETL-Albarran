@@ -11,15 +11,15 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{53F9E652-A40D-4D54-95AE-1698B9FB2236}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{08B1819E-9DFB-4272-9308-ACCED7CAA6D7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Albarran]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{275C0F92-22D7-4A7C-94FE-F6EFE8857CFD}"
+      DTS:DTSID="{2B252F2A-0711-411C-8CD9-FCC1A9633988}"
       DTS:ObjectName="localhost.Albarran">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -31,7 +31,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.AlbarranDM]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{C062E61E-882B-4729-91F6-3A141A39F369}"
+      DTS:DTSID="{DCF1726D-403F-4812-B0CA-A9465DA47CDE}"
       DTS:ObjectName="localhost.AlbarranDM">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -521,7 +521,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT   sucursales.sucursal_id, sucursales.sucursal, comunas.comuna
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT   comunas.comuna, sucursales.sucursal_id, sucursales.sucursal
 FROM     comunas INNER JOIN
              sucursales ON comunas.comuna_id = sucursales.comuna_id</property>
                 <property
@@ -1035,6 +1035,12 @@ FROM     comunas INNER JOIN
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Dim_tiempo\Insert Destination.Inputs[OLE DB Destination Input].Columns[venta_id]"
+                      cachedDataType="i4"
+                      cachedName="venta_id"
+                      externalMetadataColumnId="Package\Dim_tiempo\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Tiempo]"
+                      lineageId="Package\Dim_tiempo\OLE DB Source.Outputs[OLE DB Source Output].Columns[venta_id]" />
+                    <inputColumn
                       refId="Package\Dim_tiempo\Insert Destination.Inputs[OLE DB Destination Input].Columns[Fecha_venta_ts]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Fecha_venta_ts"
@@ -1107,7 +1113,7 @@ FROM     comunas INNER JOIN
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Tiempo] SET [Fecha_venta] = ? WHERE [ID_Venta] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Tiempo] SET [Fecha_venta] = ? WHERE [ID_Tiempo] = ? AND [ID_Venta] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1136,10 +1142,16 @@ FROM     comunas INNER JOIN
                       externalMetadataColumnId="Package\Dim_tiempo\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Dim_tiempo\Data Conversion.Outputs[Data Conversion Output].Columns[Fecha_venta_ts]" />
                     <inputColumn
+                      refId="Package\Dim_tiempo\OLE DB Command.Inputs[OLE DB Command Input].Columns[venta_id]"
+                      cachedDataType="i4"
+                      cachedName="venta_id"
+                      externalMetadataColumnId="Package\Dim_tiempo\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Dim_tiempo\OLE DB Source.Outputs[OLE DB Source Output].Columns[venta_id]" />
+                    <inputColumn
                       refId="Package\Dim_tiempo\OLE DB Command.Inputs[OLE DB Command Input].Columns[ID_Venta_int]"
                       cachedDataType="i4"
                       cachedName="ID_Venta_int"
-                      externalMetadataColumnId="Package\Dim_tiempo\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Dim_tiempo\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\Dim_tiempo\Data Conversion.Outputs[Data Conversion Output].Columns[ID_Venta_int]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -1159,6 +1171,17 @@ FROM     comunas INNER JOIN
                       refId="Package\Dim_tiempo\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="i4"
                       name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_tiempo\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1338,7 +1361,7 @@ FROM     ventas</property>
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Fecha_venta], [ID_Venta] FROM [dbo].[Dim_Tiempo]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Fecha_venta], [ID_Tiempo], [ID_Venta] FROM [dbo].[Dim_Tiempo]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -1412,6 +1435,19 @@ FROM     ventas</property>
                           typeConverter="ColumnType">1</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[venta_id]"
+                      cachedDataType="i4"
+                      cachedName="venta_id"
+                      externalMetadataColumnId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Tiempo]"
+                      lineageId="Package\Dim_tiempo\OLE DB Source.Outputs[OLE DB Source Output].Columns[venta_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1419,6 +1455,10 @@ FROM     ventas</property>
                       refId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Fecha_venta]"
                       dataType="dbTimeStamp"
                       name="Fecha_venta" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Tiempo]"
+                      dataType="i4"
+                      name="ID_Tiempo" />
                     <externalMetadataColumn
                       refId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Venta]"
                       dataType="i4"
@@ -2084,6 +2124,11 @@ FROM     ventas</property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
@@ -2239,27 +2284,33 @@ FROM     ventas</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_tiempo\Slowly Changing Dimension">
+    design-time-name="Package\Dim_Sucursal\Slowly Changing Dimension">
     <Properties>
       <Property>
         <Name>SCDMetadata</Name>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{C062E61E-882B-4729-91F6-3A141A39F369}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[Dim_Tiempo]&lt;/TableName&gt;
+  &lt;ConnectionID&gt;{DCF1726D-403F-4812-B0CA-A9465DA47CDE}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Sucursal]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Fecha_venta_ts]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Fecha_venta&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Comuna_str]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Comuna&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[ID_Venta_int]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_Venta&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[ID_sucursal_int]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Sucursal&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_sucursal_str]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nombre_Sucursal&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
@@ -2282,33 +2333,33 @@ FROM     ventas</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim_Sucursal\Slowly Changing Dimension">
+    design-time-name="Package\Dim_tiempo\Slowly Changing Dimension">
     <Properties>
       <Property>
         <Name>SCDMetadata</Name>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{C062E61E-882B-4729-91F6-3A141A39F369}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[Dim_Sucursal]&lt;/TableName&gt;
+  &lt;ConnectionID&gt;{DCF1726D-403F-4812-B0CA-A9465DA47CDE}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Tiempo]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Comuna_str]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Comuna&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Fecha_venta_ts]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Fecha_venta&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[ID_sucursal_int]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_Sucursal&lt;/ColumnName&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[venta_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Tiempo&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_sucursal_str]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Nombre_Sucursal&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[ID_Venta_int]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Venta&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
