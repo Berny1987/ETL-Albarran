@@ -11,8 +11,8 @@
   DTS:LocaleID="13322"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{41EFD1DA-701A-4305-939F-F108B64D8A2B}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{F2FABD8F-9285-48FC-9230-588F31589B8C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -118,41 +118,21 @@
                   synchronousInputId="Package\Dim_Producto\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_Producto_str]"
+                      refId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Categoria_Producto_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_Producto_str]"
-                      name="Nombre_Producto_str"
+                      length="50"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Categoria_Producto_str]"
+                      name="Categoria_Producto_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\OLE DB Source.Outputs[OLE DB Source Output].Columns[nombre]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Precio_Unitario_Producto_bool]"
-                      dataType="date"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Precio_Unitario_Producto_bool]"
-                      name="Precio_Unitario_Producto_bool"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\OLE DB Source.Outputs[OLE DB Source Output].Columns[precio_unitario]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\OLE DB Source.Outputs[OLE DB Source Output].Columns[categoria]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -180,21 +160,43 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Categoria_Producto_str]"
+                      refId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_Producto_str]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="50"
-                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Categoria_Producto_str]"
-                      name="Categoria_Producto_str"
+                      length="255"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_Producto_str]"
+                      name="Nombre_Producto_str"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\OLE DB Source.Outputs[OLE DB Source Output].Columns[categoria]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\OLE DB Source.Outputs[OLE DB Source Output].Columns[nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Precio_Unitario_Producto_bool]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Precio_Unitario_Producto_bool]"
+                      name="Precio_Unitario_Producto_bool"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Dim_Producto\OLE DB Source.Outputs[OLE DB Source Output].Columns[precio_unitario]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -221,6 +223,319 @@
                       refId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Producto]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Producto\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AlbarranDM]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AlbarranDM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_Producto_int]"
+                      cachedDataType="i4"
+                      cachedName="ID_Producto_int"
+                      externalMetadataColumnId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Producto]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[ID_Producto_int]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].Columns[Nombre_Producto_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nombre_Producto_str"
+                      externalMetadataColumnId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nombre_Producto]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_Producto_str]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].Columns[Categoria_Producto_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Categoria_Producto_str"
+                      externalMetadataColumnId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Categoria_Producto]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Categoria_Producto_str]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].Columns[Precio_Unitario_Producto_bool]"
+                      cachedDataType="numeric"
+                      cachedName="Precio_Unitario_Producto_bool"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Precio_Unitario]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Precio_Unitario_Producto_bool]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Producto]"
+                      dataType="i4"
+                      name="ID_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nombre_Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nombre_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Categoria_Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Categoria_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Precio_Unitario]"
+                      dataType="numeric"
+                      name="Precio_Unitario"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Producto\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Producto] SET [Categoria_Producto] = ?,[Nombre_Producto] = ?,[Precio_Unitario] = ? WHERE [ID_Producto] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Producto\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AlbarranDM]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AlbarranDM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].Columns[Categoria_Producto_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Categoria_Producto_str"
+                      externalMetadataColumnId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Categoria_Producto_str]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].Columns[ID_Producto_int]"
+                      cachedDataType="i4"
+                      cachedName="ID_Producto_int"
+                      externalMetadataColumnId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[ID_Producto_int]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nombre_Producto_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nombre_Producto_str"
+                      externalMetadataColumnId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_Producto_str]" />
+                    <inputColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].Columns[Precio_Unitario_Producto_bool]"
+                      cachedDataType="numeric"
+                      cachedName="Precio_Unitario_Producto_bool"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Precio_Unitario_Producto_bool]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Producto\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Producto\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Producto\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Producto\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -409,7 +724,7 @@ FROM            categorias INNER JOIN
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Categoria_Producto], [ID_Producto], [Nombre_Producto], [Precio_Unitario] FROM [dbo].[Dim_Producto]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -421,7 +736,7 @@ FROM            categorias INNER JOIN
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                  name="FailOnFixedAttributeChange">true</property>
+                  name="FailOnFixedAttributeChange">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies the column name for the inferred member."
@@ -435,7 +750,7 @@ FROM            categorias INNER JOIN
                   description="Indicates whether the transformation fails when a lookup of an existing record fails."
                   name="FailOnLookupFailure">false</property>
                 <property
-                  dataType="System.UInt32"
+                  dataType="System.Int32"
                   description="Specifies that all rows in the input are new or the transformation detects the change type."
                   name="IncomingRowChangeType"
                   typeConverter="IncomingRowChangeType">1</property>
@@ -447,6 +762,8 @@ FROM            categorias INNER JOIN
               <connections>
                 <connection
                   refId="Package\Dim_Producto\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AlbarranDM]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AlbarranDM]"
                   description="Defines the connection to use for lookups in the dimension table"
                   name="LookupConnection" />
               </connections>
@@ -454,8 +771,91 @@ FROM            categorias INNER JOIN
                 <input
                   refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
                   name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Categoria_Producto_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Categoria_Producto_str"
+                      externalMetadataColumnId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Categoria_Producto]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Categoria_Producto_str]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Producto_int]"
+                      cachedDataType="i4"
+                      cachedName="ID_Producto_int"
+                      externalMetadataColumnId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Producto]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[ID_Producto_int]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Nombre_Producto_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nombre_Producto_str"
+                      externalMetadataColumnId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nombre_Producto]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_Producto_str]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Precio_Unitario_Producto_bool]"
+                      cachedDataType="numeric"
+                      cachedName="Precio_Unitario_Producto_bool"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Precio_Unitario]"
+                      lineageId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output].Columns[Precio_Unitario_Producto_bool]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Categoria_Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Categoria_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Producto]"
+                      dataType="i4"
+                      name="ID_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Nombre_Producto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nombre_Producto" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Precio_Unitario]"
+                      dataType="numeric"
+                      name="Precio_Unitario"
+                      precision="10"
+                      scale="2" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -512,10 +912,20 @@ FROM            categorias INNER JOIN
           </components>
           <paths>
             <path
+              refId="Package\Dim_Producto.Paths[Changing Attribute Updates Output]"
+              endId="Package\Dim_Producto\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Dim_Producto\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
               refId="Package\Dim_Producto.Paths[Data Conversion Output]"
               endId="Package\Dim_Producto\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="Data Conversion Output"
               startId="Package\Dim_Producto\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Dim_Producto.Paths[New Output]"
+              endId="Package\Dim_Producto\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Dim_Producto\Slowly Changing Dimension.Outputs[New Output]" />
             <path
               refId="Package\Dim_Producto.Paths[OLE DB Source Output]"
               endId="Package\Dim_Producto\Data Conversion.Inputs[Data Conversion Input]"
@@ -990,7 +1400,7 @@ FROM            categorias INNER JOIN
     design-time-name="Package\Dim_Producto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150,42"
           Id="Package\Dim_Producto\OLE DB Source"
@@ -998,21 +1408,21 @@ FROM            categorias INNER JOIN
         <NodeLayout
           Size="156,42"
           Id="Package\Dim_Producto\Data Conversion"
-          TopLeft="234,108.5" />
+          TopLeft="234,107.5" />
         <EdgeLayout
           Id="Package\Dim_Producto.Paths[OLE DB Source Output]"
           TopLeft="312,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,53.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1024,39 +1434,107 @@ FROM            categorias INNER JOIN
         <NodeLayout
           Size="209,42"
           Id="Package\Dim_Producto\Slowly Changing Dimension"
-          TopLeft="347,249" />
+          TopLeft="207.5,209.5" />
         <EdgeLayout
           Id="Package\Dim_Producto.Paths[Data Conversion Output]"
-          TopLeft="312,150.5">
+          TopLeft="312,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="139.5,98.5"
+              EndConnector="0,60"
               Start="0,0"
-              End="139.5,91">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.25"
-                    Point2="0,49.25"
-                    Point3="4,49.25" />
-                  <mssgle:LineSegment
-                    End="135.5,49.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="135.5,49.25"
-                    Point2="139.5,49.25"
-                    Point3="139.5,53.25" />
-                  <mssgle:LineSegment
-                    End="139.5,91" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim_Producto\Insert Destination"
+          TopLeft="5.50000000000006,311.5" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[New Output]"
+          TopLeft="278.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.5,60"
+              Start="0,0"
+              End="-191.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-187.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.5,24.2735042735043"
+                    Point2="-191.5,24.2735042735043"
+                    Point3="-191.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-191.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Dim_Producto\OLE DB Command"
+          TopLeft="229,311.5" />
+        <EdgeLayout
+          Id="Package\Dim_Producto.Paths[Changing Attribute Updates Output]"
+          TopLeft="345.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.5,60"
+              Start="0,0"
+              End="-33.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-29.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5,24.2735042735043"
+                    Point2="-33.5,24.2735042735043"
+                    Point3="-33.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-33.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1067,6 +1545,74 @@ FROM            categorias INNER JOIN
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Producto\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{36D266EE-B0B8-44D1-8A88-ADCA18E7F8DD}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Producto]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Categoria_Producto_str]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Categoria_Producto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[ID_Producto_int]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Producto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_Producto_str]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nombre_Producto&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Precio_Unitario_Producto_bool]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Precio_Unitario&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Producto\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
