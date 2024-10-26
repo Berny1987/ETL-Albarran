@@ -19,7 +19,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Albarran]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{56FFA734-5275-4F22-AC85-B2CDF7382B2E}"
+      DTS:DTSID="{206BD8F2-07BD-4C90-BF97-4118238F5CD5}"
       DTS:ObjectName="localhost.Albarran">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -31,7 +31,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.AlbarranDM]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6E69B964-8E7D-4FBF-9AC2-13C548C4F10F}"
+      DTS:DTSID="{697E4D23-A970-4A56-90CE-8623080B92C8}"
       DTS:ObjectName="localhost.AlbarranDM">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -414,9 +414,9 @@
               <connections>
                 <connection
                   refId="Package\Dim_Sucursal\Insert Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.AlbarranDM]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.AlbarranDM]"
-                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  connectionManagerID="{AB6D1B09-6CDF-436F-BB78-E36CBD83AC5C}:invalid"
+                  connectionManagerRefId="{AB6D1B09-6CDF-436F-BB78-E36CBD83AC5C}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
@@ -497,6 +497,143 @@
               </outputs>
             </component>
             <component
+              refId="Package\Dim_Sucursal\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Sucursal] SET [Comuna] = ?,[Nombre_Sucursal] = ? WHERE [ID_Sucursal] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Sucursal\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{AB6D1B09-6CDF-436F-BB78-E36CBD83AC5C}:invalid"
+                  connectionManagerRefId="{AB6D1B09-6CDF-436F-BB78-E36CBD83AC5C}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].Columns[Comuna_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Comuna_str"
+                      externalMetadataColumnId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Dim_Sucursal\Data Conversion.Outputs[Data Conversion Output].Columns[Comuna_str]" />
+                    <inputColumn
+                      refId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].Columns[ID_sucursal_int]"
+                      cachedDataType="i4"
+                      cachedName="ID_sucursal_int"
+                      externalMetadataColumnId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Dim_Sucursal\Data Conversion.Outputs[Data Conversion Output].Columns[ID_sucursal_int]" />
+                    <inputColumn
+                      refId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nombre_sucursal_str]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nombre_sucursal_str"
+                      externalMetadataColumnId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Dim_Sucursal\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_sucursal_str]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Sucursal\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim_Sucursal\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Dim_Sucursal\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Sucursal\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Sucursal\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Sucursal\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dim_Sucursal\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Dim_Sucursal\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -521,7 +658,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT   sucursales.sucursal_id, sucursales.sucursal, comunas.comuna
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT   comunas.comuna, sucursales.sucursal_id, sucursales.sucursal
 FROM     comunas INNER JOIN
              sucursales ON comunas.comuna_id = sucursales.comuna_id</property>
                 <property
@@ -1075,139 +1212,6 @@ FROM     comunas INNER JOIN
               </outputs>
             </component>
             <component
-              refId="Package\Dim_tiempo\Insert Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
-              description="Destino de OLE DB"
-              name="Insert Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[dbo].[Dim_Tiempo]</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Comando SQL para ejecutar."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Dim_tiempo\Insert Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.AlbarranDM]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.AlbarranDM]"
-                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB]"
-                  errorOrTruncationOperation="Insertar"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrada de destino de OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[venta_id]"
-                      cachedDataType="i4"
-                      cachedName="venta_id"
-                      externalMetadataColumnId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_Tiempo]"
-                      lineageId="Package\Dim_tiempo\OLE DB Source.Outputs[OLE DB Source Output].Columns[venta_id]" />
-                    <inputColumn
-                      refId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[Fecha_venta_ts]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Fecha_venta_ts"
-                      externalMetadataColumnId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_venta]"
-                      lineageId="Package\Dim_tiempo\Data Conversion.Outputs[Data Conversion Output].Columns[Fecha_venta_ts]" />
-                    <inputColumn
-                      refId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].Columns[ID_Venta_int]"
-                      cachedDataType="i4"
-                      cachedName="ID_Venta_int"
-                      externalMetadataColumnId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_Venta]"
-                      lineageId="Package\Dim_tiempo\Data Conversion.Outputs[Data Conversion Output].Columns[ID_Venta_int]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_Tiempo]"
-                      dataType="i4"
-                      name="ID_Tiempo" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_venta]"
-                      dataType="dbTimeStamp"
-                      name="Fecha_venta" />
-                    <externalMetadataColumn
-                      refId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID_Venta]"
-                      dataType="i4"
-                      name="ID_Venta" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Dim_tiempo\Insert Destination.Outputs[Salida de error de destino de OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Dim_tiempo\Insert Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Dim_tiempo\Insert Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Dim_tiempo\Insert Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Dim_tiempo\Insert Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Dim_tiempo\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -1405,32 +1409,6 @@ FROM     ventas</property>
                           typeConverter="ColumnType">2</property>
                       </properties>
                     </inputColumn>
-                    <inputColumn
-                      refId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[venta_id]"
-                      cachedDataType="i4"
-                      cachedName="venta_id"
-                      externalMetadataColumnId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Tiempo]"
-                      lineageId="Package\Dim_tiempo\OLE DB Source.Outputs[OLE DB Source Output].Columns[venta_id]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">4</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID_Venta_int]"
-                      cachedDataType="i4"
-                      cachedName="ID_Venta_int"
-                      externalMetadataColumnId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID_Venta]"
-                      lineageId="Package\Dim_tiempo\Data Conversion.Outputs[Data Conversion Output].Columns[ID_Venta_int]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">1</property>
-                      </properties>
-                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1503,20 +1481,10 @@ FROM     ventas</property>
           </components>
           <paths>
             <path
-              refId="Package\Dim_tiempo.Paths[Changing Attribute Updates Output]"
-              endId="Package\Dim_tiempo\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
-              name="Changing Attribute Updates Output"
-              startId="Package\Dim_tiempo\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
-            <path
               refId="Package\Dim_tiempo.Paths[Data Conversion Output]"
               endId="Package\Dim_tiempo\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="Data Conversion Output"
               startId="Package\Dim_tiempo\Data Conversion.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Dim_tiempo.Paths[New Output]"
-              endId="Package\Dim_tiempo\Insert Destination.Inputs[Entrada de destino de OLE DB]"
-              name="New Output"
-              startId="Package\Dim_tiempo\Slowly Changing Dimension.Outputs[New Output]" />
             <path
               refId="Package\Dim_tiempo.Paths[OLE DB Source Output]"
               endId="Package\Dim_tiempo\Data Conversion.Inputs[Data Conversion Input]"
@@ -2107,33 +2075,28 @@ FROM     ventas</property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim_Sucursal\Slowly Changing Dimension">
-    <Properties>
       <Property>
-        <Name>SCDMetadata</Name>
+        <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{6E69B964-8E7D-4FBF-9AC2-13C548C4F10F}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{AB6D1B09-6CDF-436F-BB78-E36CBD83AC5C}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[Dim_Sucursal]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Salidas[Data Conversion Output].Columnas[Comuna_str]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Comuna_str]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Comuna&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Salidas[Data Conversion Output].Columnas[ID_sucursal_int]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[ID_sucursal_int]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;ID_Sucursal&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Salidas[Data Conversion Output].Columnas[Nombre_sucursal_str]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_sucursal_str]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Nombre_Sucursal&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
@@ -2141,7 +2104,7 @@ FROM     ventas</property>
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
     &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
   &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
@@ -2166,29 +2129,37 @@ FROM     ventas</property>
         <NodeLayout
           Size="151,43"
           Id="Package\Dim_tiempo\OLE DB Source"
-          TopLeft="242.5,5.5" />
-        <NodeLayout
-          Size="209,43"
-          Id="Package\Dim_tiempo\Slowly Changing Dimension"
-          TopLeft="213.5,211.5" />
+          TopLeft="67.4999989941716,20.1499996396899" />
         <NodeLayout
           Size="157,43"
           Id="Package\Dim_tiempo\Data Conversion"
-          TopLeft="239.5,108.5" />
+          TopLeft="149.999997764826,118.949997873008" />
         <EdgeLayout
           Id="Package\Dim_tiempo.Paths[OLE DB Source Output]"
-          TopLeft="318,48.5">
+          TopLeft="142.833332327505,62.8166663063566">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="85.8333321039875,56.1333315666517"
               Start="0,0"
-              End="0,52.5">
+              End="85.8333321039875,48.6333315666517">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,24.0666657833259" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0666657833259"
+                    Point2="0,28.0666657833259"
+                    Point3="4,28.0666657833259" />
+                  <mssgle:LineSegment
+                    End="81.8333321039875,28.0666657833259" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.8333321039875,28.0666657833259"
+                    Point2="85.8333321039875,28.0666657833259"
+                    Point3="85.8333321039875,32.0666657833259" />
+                  <mssgle:LineSegment
+                    End="85.8333321039875,48.6333315666517" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2197,106 +2168,42 @@ FROM     ventas</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\Dim_tiempo\Slowly Changing Dimension"
+          TopLeft="214.99999679625,230.099995885491" />
         <EdgeLayout
           Id="Package\Dim_tiempo.Paths[Data Conversion Output]"
-          TopLeft="318,151.5">
+          TopLeft="228.666664431493,161.616664539675">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="90.9999990314245,68.4833313458165"
               Start="0,0"
-              End="0,52.5">
+              End="90.9999990314245,60.9833313458165">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,30.2416656729082" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2416656729082"
+                    Point2="0,34.2416656729082"
+                    Point3="4,34.2416656729082" />
+                  <mssgle:LineSegment
+                    End="86.9999990314245,34.2416656729082" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.9999990314245,34.2416656729082"
+                    Point2="90.9999990314245,34.2416656729082"
+                    Point3="90.9999990314245,38.2416656729082" />
+                  <mssgle:LineSegment
+                    End="90.9999990314245,60.9833313458165" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Dim_tiempo\Insert Destination"
-          TopLeft="5.50000000000006,314.5" />
-        <EdgeLayout
-          Id="Package\Dim_tiempo.Paths[New Output]"
-          TopLeft="284.5,254.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-197.5,60"
-              Start="0,0"
-              End="-197.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-193.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-193.5,24.2735042735043"
-                    Point2="-197.5,24.2735042735043"
-                    Point3="-197.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-197.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-125.84138671875,29.2735042735043,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Dim_tiempo\Comando de OLE DB"
-          TopLeft="229.5,314.5" />
-        <EdgeLayout
-          Id="Package\Dim_tiempo.Paths[Changing Attribute Updates Output]"
-          TopLeft="351.5,254.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
-              Start="0,0"
-              End="-33.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-33.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2311,6 +2218,55 @@ FROM     ventas</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Dim_Sucursal\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{DCF1726D-403F-4812-B0CA-A9465DA47CDE}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Sucursal]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Comuna_str]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Comuna&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[ID_sucursal_int]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_Sucursal&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[Nombre_sucursal_str]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Nombre_Sucursal&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Dim_tiempo\Slowly Changing Dimension">
     <Properties>
       <Property>
@@ -2318,7 +2274,7 @@ FROM     ventas</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{6E69B964-8E7D-4FBF-9AC2-13C548C4F10F}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{697E4D23-A970-4A56-90CE-8623080B92C8}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[Dim_Tiempo]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -2328,22 +2284,13 @@ FROM     ventas</property>
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Salidas[OLE DB Source Output].Columnas[venta_id]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_Tiempo&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Data Conversion.Salidas[Data Conversion Output].Columnas[ID_Venta_int]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Data Conversion.Outputs[Data Conversion Output].Columns[ID_Venta_int]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;ID_Venta&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Comando de OLE DB&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;GeneratedComponentsIdentificationStrings /&gt;
   &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
   &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
